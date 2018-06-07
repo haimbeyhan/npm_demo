@@ -15,6 +15,11 @@ npm run build'''
 npm run build'''
       }
     }
+    stage('Test') {
+      steps {
+        sh 'npm run test'
+      }
+    }
   }
   parameters {
     choice(name: 'REQUESTED_ACTION', choices: '''Build
