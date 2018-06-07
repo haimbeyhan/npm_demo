@@ -1,15 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('Build Demo App') {
-      when {
-        expression {
-          params.REQUESTED_ACTION == 'Build'
-        }
-
-      }
+    stage('Build') {
       steps {
-        sh ''''''
+        sh '''npm install
+npm run build'''
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'npm run test'
       }
     }
   }
