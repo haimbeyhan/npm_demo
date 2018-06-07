@@ -12,12 +12,10 @@
         name: unzip
         update_cache: yes
         state: present
-    - name: Create directory
-      file: path=/tmp/1 state=directory
     - name: Upload Zip file
       copy:
         src: files/nodejs-demoapp.zip
-        dest: /tmp/1
+        dest: /tmp/1/
     - name: Unarchive Zip file
       unarchive:
         src: /tmp/nodejs-demoapp.zip
@@ -37,4 +35,4 @@
     - name: Run app using pm2
       shell: pm2 start server.js -f
       args:
-        chdir: /tmp1
+        chdir: /tmp/1
